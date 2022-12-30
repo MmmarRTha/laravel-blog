@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,16 +13,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+/** 
+Route::get('/', [PageController::class, 'home'])->name('home');
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/blog', [PageController::class, 'blog'])->name('blog');
 
-Route::get('/blog', function () {
-    return view('blog');
-})->name('blog');
+Route::get('/blog/{slug}', [PageController::class, 'post'])->name('post');
+*/
 
-Route::get('/blog/{slug}', function ($slug) {
-    $post = $slug;
-    return view('post', ['post' => $post]);
-})->name('post');
+Route::controller(PageController::class)->group(function () {
+    Route::get('/',            'home')->name('home');
+    Route::get('/blog',        'blog')->name('blog');
+    Route::get('/blog/{slug}', 'post')->name('post');
+});
