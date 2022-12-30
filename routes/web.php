@@ -15,12 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/blog', function () {
-    return 'Published blog list';
-});
+    return view('blog');
+})->name('blog');
 
 Route::get('/blog/{slug}', function ($slug) {
-    return 'Published blog with slug: ' . $slug;
-});
+    $post = $slug;
+    return view('post', ['post' => $post]);
+})->name('post');
