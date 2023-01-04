@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(PageController::class)->group(function () {
+    Route::get('/',            'home')->name('home');
+    Route::get('/blog',        'blog')->name('blog');
+    Route::get('/blog/{post:slug}', 'post')->name('post');
 });
 
 Route::get('/dashboard', function () {
@@ -27,5 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::resource('/posts', PostController::class)->except(['show'])->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';
