@@ -2,7 +2,9 @@
 
 @section('content')
 
-<h1>Details</h1>
-{{ $post }}
+<h1>{{ $post->title }}</h1>
+<p>
+    {{ $post->content }}
+</p>
 
 @endsection
