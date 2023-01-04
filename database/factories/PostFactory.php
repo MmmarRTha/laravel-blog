@@ -18,9 +18,10 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
+            'user_id' => 1,
             'title'   => $title = $this->faker->sentence,
             'slug'    => Str::slug($title),
-            'content' => $this->faker->paragraph,
+            'content' => $this->faker->paragraph(5),
         ];
     }
 }
