@@ -17,7 +17,16 @@
                                 <a href="" class="text-indigo-600">Update</a>
                             </td>
                             <td class="px-6 py-4">
-                                Delete
+                                <form action="{{ route('posts.destroy', $post) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input 
+                                        type="submit" 
+                                        value="Delete"
+                                        class="bg-red-600 rounded px-4 py-2 text-base text-white hover:bg-red-700 cursor-pointer"
+                                        onclick="return confirm('Do you want to delete it?')"
+                                    >
+                                </form>
                             </td>
                         </tr>
                         @empty
