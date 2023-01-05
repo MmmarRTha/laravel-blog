@@ -1,7 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight flex items-center justify-between">
             {{ __('Posts') }}
+
+            <a href="{{ route('posts.create') }}" class="text-xs bg-blue-700 rounded px-2 py-1 font-semibold text-white hover:bg-blue-800">New Post</a>
         </h2>
     </x-slot>
 
@@ -14,7 +16,7 @@
                         <tr class="border-b border-gray-200 text-sm">
                             <td class="px-6 py-4">{{ $post->title }}</td>
                             <td class="px-6 py-4"> 
-                                <a href="" class="text-indigo-600">Update</a>
+                                <a href="{{ route('posts.edit', $post) }}" class=" bg-blue-100 rounded px-4 py-2 text-base font-semibold hover:bg-blue-200 text-blue-700">Update</a>
                             </td>
                             <td class="px-6 py-4">
                                 <form action="{{ route('posts.destroy', $post) }}" method="POST">
@@ -23,7 +25,7 @@
                                     <input 
                                         type="submit" 
                                         value="Delete"
-                                        class="bg-red-600 rounded px-4 py-2 text-base text-white hover:bg-red-700 cursor-pointer"
+                                        class="bg-red-100 rounded px-4 py-2 text-base font-semibold text-red-700 hover:bg-red-200 cursor-pointer"
                                         onclick="return confirm('Do you want to delete it?')"
                                     >
                                 </form>
