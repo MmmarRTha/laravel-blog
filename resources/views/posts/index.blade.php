@@ -3,7 +3,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight flex items-center justify-between">
             {{ __('Posts') }}
 
-            <a href="{{ route('posts.create') }}" class="text-xs bg-blue-700 rounded px-2 py-1 font-semibold text-white hover:bg-blue-800">New Post</a>
+            <a href="{{ route('posts.create') }}" class="text-xs bg-blue-600 rounded px-3 py-2 font-bold text-white hover:bg-blue-800">New Post</a>
         </h2>
     </x-slot>
 

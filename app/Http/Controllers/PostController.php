@@ -24,9 +24,9 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Post $post)
     {
-        return view('posts.create');
+        return view('posts.create', compact('post'));
     }
 
     /**
@@ -58,9 +58,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.edit', [
-            'post' => $post
-        ]);
+        return view('posts.edit', compact('post'));
     }
 
     /**
