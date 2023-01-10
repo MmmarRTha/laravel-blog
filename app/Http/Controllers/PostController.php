@@ -48,17 +48,6 @@ class PostController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @return \Illuminate\Http\Response
@@ -75,9 +64,15 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $post->update([
+            'title' => $title = $request->title,
+            'slug' => Str::slug($title),
+            'content' => $request->content,
+        ]);
+
+        return redirect()->route('posts.index', $post);
     }
 
     /**
