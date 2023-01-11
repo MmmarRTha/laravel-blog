@@ -15,10 +15,10 @@
                     <img src="{{ asset('images/logo.png') }}" alt="logo" class="h-12">
                 </a>
                 <form action="">
-                    <input type="text" placeholder="Search">
+                    <input class="rounded" type="text" placeholder="Search">
                 </form>
             </div>
-            <div class="text-xl">
+            <div class="text-xl bg-slate-900 rounded px-3 py-2 font-normal border border-sky-300 text-sky-300 hover:bg-slate-800">
                 @auth
                 <a href="{{ route('dashboard') }}">Dashboard</a>   
                 @else
