@@ -1,10 +1,20 @@
 @csrf
+<div>
+    <label class="uppercase text-gray-700 text-sm font-semibold">Title</label>
+    <input type="text" name="title" class="rounded border-gray-200 w-full" value="{{ old('title', $post->title) }}">
+    <span class="text-xs text-red-600 mb-4">@error('title') {{ $message }} @enderror</span>
+</div>
+<div class="mt-4">
+    <label class="uppercase text-gray-700 text-sm font-semibold">Slug</label>
+    <input type="text" name="slug" class="rounded border-gray-200 w-full" value="{{ old('slug', $post->slug) }}">
+    <span class="text-xs text-red-600">@error('slug') {{ $message }} @enderror</span>
 
-<label class="uppercase text-gray-700 text-xs">Title</label>
-<input type="text" name="title" class="rounded border-gray-200 w-full mb-4" value="{{ $post->title }}">
-
-<label class="uppercase text-gray-700 text-xs">Content</label>
-<textarea name="content" rows="5" class="rounded border-gray-200 w-full mb-4">{{ $post->content }}</textarea>
+</div>
+<div class="mt-4">
+    <label class="uppercase text-gray-700 text-sm font-semibold">Content</label>
+    <textarea name="content" rows="5" class="rounded border-gray-200 w-full">{{ old('content', $post->content) }}</textarea>
+    <span class="text-xs text-red-600">@error('content') {{ $message }} @enderror</span>
+</div>
 
 <div class="flex justify-between items-center">
     <a href="{{ route('posts.index') }}" class="text-blue-700">Back</a>
