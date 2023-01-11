@@ -2,6 +2,6 @@
 
 @section('content')
     
-<h1>Home Blog</h1>
+<h1>Home Cat Blog</h1>
     
 @endsection
