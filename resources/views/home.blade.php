@@ -1,12 +1,15 @@
 @extends('template')
 
 @section('content')
-<div>
-
+<div class="bg-gradient-to-r from-sky-900 to-indigo-600 px-20 py-12 rounded-lg mb-8 relative overflow-hidden">
+    <span class="text-sm uppercase text-white bg-sky-400 rounded-full px-2 py-1">Code</span>
+    <h1 class="text-3xl text-white mt-4">Blog</h1>
+    <p class="text-sm text-cyan-200 mt-2">Web Development Project</p>
+{{--    <img src="{{ asset('images/devMe.jpg') }}" alt="pizza" class= "absolute -right-20 -bottom-20 opacity-20">--}}
 </div>
 {{-- <h1 class="text-xl">Home Cat Blog</h1> --}}
 <div class="px-4">
-    <h1 class="text-2xl mb-8 text-gray-900">Cat Content</h1>
+    <h1 class="text-2xl mb-8 text-gray-900">Content</h1>
 
     <div class="grid grid-cols-1 gap-4 mb-4">
         @foreach ($posts as $post)
@@ -21,5 +24,5 @@
     </div>
     {{ $posts->links() }}
 </div>
-    
+
 @endsection
