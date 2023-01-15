@@ -18,14 +18,13 @@
                     <input class="rounded" type="text" placeholder="Search">
                 </form>
             </div>
-            <div class="text-xl bg-slate-900 rounded px-3 py-2 font-normal border border-sky-300 text-sky-300 hover:bg-slate-800">
+            <div class="text-lg bg-slate-700 rounded px-3 py-2 font-normal text-white hover:bg-slate-800">
                 @auth
-                <a href="{{ route('dashboard') }}">Dashboard</a>   
+                <a href="{{ route('dashboard') }}">Dashboard</a>
                 @else
                 <a href="{{ route('login') }}">Login</a>
                 @endauth
             </div>
-            
         </header>
         <div class="opacity-60 h-px mb-4" style="
             background: linear-gradient(to right,
@@ -35,11 +34,8 @@
             rgba(200, 200, 200, 0) 100%
             );
         ">
-
         </div>
-
         @yield('content')
-
         <p class="py-16">
             <img src="{{ asset('images/logo.png') }}" alt="logo" class="h-12 mx-auto">
         </p>

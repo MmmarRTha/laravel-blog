@@ -14,7 +14,7 @@ class PageController extends Controller
      */
     public function home(): Factory|View|Application
     {
-        $posts = Post::latest()->paginate(5);
+        $posts = Post::latest()->paginate(3);
         return view('home', ['posts' => $posts]);
     }
 
