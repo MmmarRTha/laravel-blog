@@ -8,14 +8,14 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    <div class="container px-1 md:px-4 lg:px-0 mx-auto">
-        <header class="flex justify-between items-center py-8">
+    <div class="container px-4 mx-auto">
+        <header class="flex justify-between items-center py-4 px-4 md:py-8">
             <div class="flex items-center flex-grow gap-4">
                 <a href="{{ route('home') }}">
-                    <img src="{{ asset('images/logo.png') }}" alt="logo" class="h-12">
+                    <img src="{{ asset('images/logo.png') }}" alt="logo" class="h-8 md:h-12 mx-auto">
                 </a>
-                <form action="{{ route('home') }}" method="GET">
-                    <input class="px-20 py-2 rounded border border-gray-300 focus:outline-none focus:border-gray-400 focus:ring-gray-400" name="search" type="text" placeholder="Search" value="{{ request('search') }}">
+                <form action="{{ route('home') }}" method="GET" class="flex-grow">
+                    <input class="px-4 py-2 w-1/2 rounded border border-gray-300 focus:outline-none focus:border-gray-400 focus:ring-gray-400" name="search" type="text" placeholder="Search" value="{{ request('search') }}">
                 </form>
             </div>
             <div class="text-lg bg-gradient-to-b from-slate-700 to-slate-500 rounded px-3 py-2 font-normal text-white hover:bg-gradient-to-t">
@@ -26,15 +26,15 @@
                 @endauth
             </div>
         </header>
-        <div class="opacity-60 h-px mb-4" style="
-            background: linear-gradient(to right,
-            rgba(200, 200, 200, 0) 0%,
-            rgba(200, 200, 200, 1) 30%,
-            rgba(200, 200, 200, 1) 70%,
-            rgba(200, 200, 200, 0) 100%
-            );
-        ">
-        </div>
+            <div class="opacity-60 h-px mb-4 mx-auto" style="
+                background: linear-gradient(to right,
+                rgba(200, 200, 200, 0) 0%,
+                rgba(200, 200, 200, 1) 30%,
+                rgba(200, 200, 200, 1) 70%,
+                rgba(200, 200, 200, 0) 100%
+                );
+            ">
+            </div>
         @yield('content')
         <p class="py-16">
             <img src="{{ asset('images/logo.png') }}" alt="logo" class="h-12 mx-auto">
